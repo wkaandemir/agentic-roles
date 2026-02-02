@@ -1,0 +1,334 @@
+---
+name: post-implementation-self-audit-request
+description: Run an evidence-based self-audit after implementation to assess readiness and risks.
+---
+
+# Post-Implementation Self Audit Request
+
+Please perform a comprehensive, evidence-based self-audit of the recent changes. This analysis will help us verify implementation correctness, identify edge cases, assess regression risks, and determine readiness for production deployment.
+
+## Task-Oriented Execution Model
+- Treat every requirement below as an explicit, trackable task.
+- Assign each task a stable ID (e.g., TASK-1.1) and use checklist items in outputs.
+- Keep tasks grouped under the same headings to preserve traceability.
+- Produce outputs as Markdown documents with task checklists; include code only in fenced blocks when required.
+- Preserve scope exactly as written; do not drop or add requirements.
+
+## Change Scope and Requirements Verification
+
+### 1. Change Summary and Context
+- **Change Description**: Clear summary of what changed and why
+- **Requirement Mapping**: Map each change to explicit requirements or tickets
+- **Scope Boundaries**: Identify related areas not changed but potentially affected
+- **Risk Areas**: Highlight highest-risk components modified
+- **Dependencies**: Document dependencies introduced or modified
+- **Rollback Scope**: Define scope of rollback if needed
+
+### 2. Completeness Verification
+- **Implementation Coverage**: Verify all requirements are implemented
+- **Missing Features**: Identify any planned features not implemented
+- **Known Limitations**: Document known limitations or deferred work
+- **Partial Implementation**: Assess any partially implemented features
+- **Technical Debt**: Note technical debt introduced during implementation
+- **Documentation Updates**: Verify documentation reflects changes
+
+### 3. Requirement Traceability
+- **Feature Traceability**: Map code changes to requirements
+- **Test Coverage**: Verify tests cover all requirements
+- **Acceptance Criteria**: Validate acceptance criteria are met
+- **Stakeholder Expectations**: Confirm stakeholder expectations are addressed
+- **Compliance Requirements**: Verify compliance requirements are met
+
+## Test Evidence and Coverage Task Requirements
+
+### 1. Test Execution Evidence
+- **Commands Executed**: List all test commands executed
+- **Test Results**: Include complete test results with pass/fail status
+- **Test Logs**: Provide relevant test logs and output
+- **Coverage Reports**: Include code coverage metrics and reports
+- **Performance Tests**: Document performance test results if applicable
+- **Security Tests**: Include security scan results if applicable
+
+### 2. Test Type Analysis
+- **Unit Tests**: Verify unit test coverage and results
+- **Integration Tests**: Validate integration test execution
+- **End-to-End Tests**: Confirm e2e test results
+- **API Tests**: Review API test coverage and results
+- **UI Tests**: Assess UI test execution if applicable
+- **Contract Tests**: Verify contract test coverage
+
+### 3. Coverage Gap Analysis
+- **Uncovered Code**: Identify code paths not covered by tests
+- **Edge Cases**: Note edge cases not tested
+- **Error Paths**: Verify error handling is tested
+- **Boundary Conditions**: Test boundary conditions are covered
+- **Integration Points**: Validate integration points have tests
+- **Risk-Based Coverage**: Prioritize coverage for high-risk areas
+
+### 4. Skipped and Failed Tests
+- **Skipped Tests**: Document all skipped tests and reasons
+- **Failed Tests**: Analyze failed tests and justify if acceptable
+- **Flaky Tests**: Identify flaky tests and mitigation plans
+- **Disabled Tests**: Review disabled tests and justify status
+- **Test Stability**: Assess overall test stability
+- **Remediation Plans**: Document plans for failing tests
+
+### 5. Environment Verification
+- **Runtime Environment**: Document environment used for testing
+- **Configuration**: Validate configuration matches production intent
+- **Data State**: Review test data state and cleanup
+- **External Services**: Verify external service mocking or stubbing
+- **Environment Parity**: Assess parity between test and production environments
+
+## Edge Case and Negative Testing Task Requirements
+
+### 1. Boundary Conditions
+- **Input Boundaries**: Test min, max, and boundary values
+- **Empty Inputs**: Verify behavior with empty inputs
+- **Null Handling**: Test null and undefined value handling
+- **Overflow/Underflow**: Assess numeric overflow and underflow
+- **String Length**: Test string length limits and truncation
+- **Array Bounds**: Verify array boundary handling
+
+### 2. Invalid Input Testing
+- **Malformed Data**: Test with malformed or invalid data
+- **Type Mismatches**: Verify handling of type mismatches
+- **Missing Fields**: Test behavior with missing required fields
+- **Extra Fields**: Test handling of unexpected fields
+- **Invalid Formats**: Verify handling of format violations
+- **Encoding Issues**: Test various character encodings
+
+### 3. Concurrency and Race Conditions
+- **Concurrent Access**: Test concurrent access to shared resources
+- **Race Conditions**: Identify and test potential race conditions
+- **Deadlock Scenarios**: Test for deadlock possibilities
+- **Lock Contention**: Verify behavior under lock contention
+- **Transaction Conflicts**: Test transaction conflict handling
+- **Async Operations**: Validate async operation correctness
+
+### 4. Error Path Validation
+- **Exception Handling**: Verify exception handling paths
+- **Error Propagation**: Test error propagation and reporting
+- **Graceful Degradation**: Assess graceful degradation on errors
+- **Retry Logic**: Verify retry logic and backoff behavior
+- **Circuit Breaking**: Test circuit breaker functionality
+- **Fallback Behavior**: Validate fallback mechanisms
+
+### 5. Data Integrity Testing
+- **Partial Updates**: Test partial update scenarios
+- **Rollback Behavior**: Verify rollback on failure
+- **Data Corruption**: Assess protection against data corruption
+- **Consistency Checks**: Verify data consistency constraints
+- **Transaction Safety**: Test transaction boundaries
+- **Recovery Scenarios**: Test data recovery procedures
+
+## Security and Privacy Regression Task Requirements
+
+### 1. Authentication and Authorization
+- **Auth Checks**: Verify authorization on modified endpoints
+- **Permission Changes**: Review permission changes introduced
+- **Session Management**: Validate session handling changes
+- **Token Handling**: Verify token validation and refresh
+- **Access Control**: Confirm access control enforcement
+- **Privilege Escalation**: Test for privilege escalation risks
+
+### 2. Input Validation Security
+- **Injection Risks**: Test for SQL, XSS, and command injection
+- **Input Sanitization**: Verify input sanitization is maintained
+- **File Upload Security**: Test file upload validation
+- **Path Traversal**: Verify path traversal protection
+- **API Validation**: Validate API input validation
+- **Length Limits**: Confirm input length limits
+
+### 3. Data Protection
+- **Sensitive Data Handling**: Verify sensitive data is protected
+- **Logging Security**: Check logs don't contain sensitive data
+- **Encryption Validation**: Confirm encryption is properly applied
+- **Data Masking**: Verify data masking in outputs
+- **PII Handling**: Validate PII handling compliance
+- **Secret Management**: Review secret handling changes
+
+### 4. Configuration Security
+- **Config Changes**: Review configuration changes for security impact
+- **Secret Rotation**: Verify secret rotation if applicable
+- **Environment Variables**: Check environment variable security
+- **Default Values**: Assess security of default values
+- **Debug Information**: Verify debug info not exposed in production
+
+## Performance and Reliability Task Requirements
+
+### 1. Performance Impact Assessment
+- **Response Time**: Measure response time changes
+- **Throughput**: Verify throughput targets are met
+- **Resource Usage**: Assess CPU, memory, and I/O changes
+- **Database Performance**: Review query performance impact
+- **Cache Efficiency**: Validate cache hit rates
+- **Network Impact**: Assess network usage changes
+
+### 2. Scalability Verification
+- **Load Testing**: Review load test results if applicable
+- **Stress Testing**: Verify behavior under stress conditions
+- **Resource Limits**: Test resource limit handling
+- **Horizontal Scaling**: Validate horizontal scaling if applicable
+- **Vertical Scaling**: Assess vertical scaling impact
+- **Bottleneck Identification**: Identify any new bottlenecks
+
+### 3. Resilience and Fault Tolerance
+- **Retry Logic**: Verify retry logic is appropriate
+- **Timeout Handling**: Confirm timeout values are appropriate
+- **Circuit Breakers**: Test circuit breaker functionality
+- **Graceful Degradation**: Assess graceful degradation behavior
+- **Failure Isolation**: Verify failure isolation
+- **Recovery Time**: Measure recovery time from failures
+
+### 4. Failure Mode Analysis
+- **Partial Outages**: Test behavior during partial outages
+- **Service Degradation**: Verify handling of degraded service
+- **Dependency Failures**: Test failure of external dependencies
+- **Network Issues**: Verify behavior with network issues
+- **Resource Exhaustion**: Test handling of resource exhaustion
+- **Cascading Failures**: Assess risk of cascading failures
+
+## Operational Readiness Task Requirements
+
+### 1. Observability Coverage
+- **Logging**: Verify adequate logging for troubleshooting
+- **Metrics**: Confirm metrics are emitted for key operations
+- **Tracing**: Validate distributed tracing is working
+- **Health Checks**: Verify health check endpoints
+- **Alert Rules**: Confirm alert rules are configured
+- **Dashboards**: Validate operational dashboards
+
+### 2. Runbook and Documentation Updates
+- **Runbook Updates**: Verify runbooks reflect changes
+- **Troubleshooting Guides**: Update troubleshooting documentation
+- **Escalation Procedures**: Confirm escalation procedures are documented
+- **On-Call Procedures**: Update on-call procedures as needed
+- **Knowledge Base**: Update knowledge base articles
+- **API Documentation**: Verify API documentation is current
+
+### 3. Deployment Considerations
+- **Deployment Strategy**: Review deployment approach
+- **Database Migrations**: Verify database migrations are safe
+- **Configuration Changes**: Document configuration changes needed
+- **Feature Flags**: Confirm feature flag configuration
+- **Rollback Plan**: Verify rollback plan is documented
+- **Deployment Order**: Validate deployment order for multiple services
+
+### 4. Monitoring and Alerting
+- **New Metrics**: Identify new metrics introduced
+- **Alert Thresholds**: Verify alert thresholds are appropriate
+- **Silence Periods**: Document any alert silence periods
+- **On-Call Impact**: Assess on-call impact of changes
+- **Runbook Links**: Confirm alert to runbook linkage
+- **Escalation Paths**: Verify escalation path configuration
+
+## Documentation and Communication Task Requirements
+
+### 1. Documentation Completeness
+- **README Updates**: Verify README reflects changes
+- **API Documentation**: Update API documentation
+- **Architecture Docs**: Update architecture documentation
+- **Change Logs**: Document changes in changelog
+- **Migration Guides**: Provide migration guides if needed
+- **Deprecation Notices**: Add deprecation notices if applicable
+
+### 2. Release Notes
+- **User-Facing Changes**: Document user-visible changes
+- **Behavioral Changes**: Note any behavioral changes
+- **Breaking Changes**: Clearly identify breaking changes
+- **New Features**: List new features added
+- **Bug Fixes**: Document bug fixes included
+- **Known Issues**: List any known issues
+
+### 3. Stakeholder Communication
+- **Impact Teams**: Identify teams impacted by changes
+- **Notification Status**: Confirm stakeholder notifications sent
+- **Training Needs**: Assess training needs for changes
+- **Support Handoff**: Verify support team handoff complete
+- **Sales Impact**: Assess impact on sales if applicable
+- **Customer Communication**: Review customer communication if needed
+
+## Output (TODO Only)
+
+Write the full self-audit (readiness assessment, evidence log, and follow-ups) to `TODO_post-implementation-self-audit-request.md` only. Do not create any other files.
+
+## Output Format (Task-Based)
+
+Every finding or recommendation must include a unique Task ID and be expressed as a trackable checklist item.
+
+In `TODO_post-implementation-self-audit-request.md`, include:
+
+### Executive Summary
+- Overall readiness assessment (Ready/Not Ready/Conditional)
+- Most critical gaps identified
+- Risk level distribution (Critical/High/Medium/Low)
+- Immediate action items
+- Go/No-Go recommendation
+
+### Detailed Findings
+- **Issue Title**: Clear, descriptive issue name
+- **Evidence**: Test output, logs, or code reference
+- **Impact**: User or system impact
+- **Severity**: Critical/High/Medium/Low
+- **Recommendation**: Specific next action
+- **Status**: Open/Blocked/Resolved/Mitigated
+- **Owner**: Responsible person or team
+- **Verification**: How to confirm resolution
+- **Timeline**: When resolution is expected
+
+### Remediation Recommendations
+- **Immediate Actions**: Blockers to resolve before release
+- **Short-term Solutions**: Fixes for the next release cycle
+- **Long-term Strategy**: Systemic improvements and guardrails
+- **Documentation Updates**: Runbook or docs changes needed
+- **Tooling Updates**: Tooling or automation gaps
+- **Validation Steps**: Verification steps for each remediation
+
+### Effort & Priority Assessment
+- **Implementation Effort**: Development time estimation (hours/days/weeks)
+- **Complexity Level**: Simple/Moderate/Complex based on technical requirements
+- **Dependencies**: Prerequisites and coordination requirements
+- **Priority Score**: Combined risk and effort matrix for prioritization
+- **Release Impact**: Whether this blocks the release
+
+## Quality Assurance Task Checklist
+
+### Verification Discipline
+- **Test Evidence**: Do not approve without verifiable test evidence
+- **Missing Coverage**: Call out missing tests or unverified assumptions
+- **Repro Steps**: Include minimal repro steps for critical issues
+- **Evidence Quality**: Ensure evidence is clear and convincing
+
+### Actionable Recommendations
+- **Fix Feasibility**: Provide fixes that are testable and realistic
+- **Risk Priority**: Prioritize security and correctness over cosmetic changes
+- **Rollout Safety**: Require verification in staging or canary when applicable
+- **Fallback Options**: Provide fallback options when primary fix is risky
+
+### Risk Contextualization
+- **Release Readiness**: Highlight gaps that block deployment
+- **User Impact**: Prioritize issues that affect user-visible behavior
+- **Operational Impact**: Include on-call or support impact
+- **Regression Risk**: Assess risk of regression from changes
+
+## Additional Task Focus Areas
+
+### Release Safety
+- **Rollback Readiness**: Assess ability to rollback safely
+- **Rollout Strategy**: Review rollout and monitoring plan
+- **Feature Flags**: Evaluate feature flag usage for safe rollout
+- **Phased Rollout**: Assess phased rollout capability
+- **Monitoring Plan**: Verify monitoring is in place for release
+
+### Post-Release Considerations
+- **Monitoring Windows**: Define monitoring windows after release
+- **Success Criteria**: Define success criteria for the release
+- **Contingency Plans**: Document contingency plans if issues arise
+- **Support Readiness**: Verify support team is prepared
+- **Customer Impact**: Assess customer impact of issues
+
+Please begin the self-audit, focusing on evidence-backed verification and release readiness.
+
+---
+**RULE:** When using this prompt, you must create a file named `TODO_post-implementation-self-audit-request.md`. This file must contain the findings resulting from this research as checkable checkboxes that can be coded and tracked by an LLM.

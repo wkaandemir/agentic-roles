@@ -1,0 +1,403 @@
+---
+name: cyber-security-audit-request
+description: Run a comprehensive cybersecurity audit (systems, codebase, agent/prompt workflows).
+---
+
+# Cybersecurity Audit Request
+
+Please perform a comprehensive cybersecurity audit of our systems and codebase, including agent/prompt workflows when applicable. This analysis will help us identify critical vulnerabilities, attack paths, prompt-injection and data-exfiltration risks, and stability/bug-risk issues that could impact system security, reliability, data protection, and organizational risk exposure.
+
+## Task-Oriented Execution Model
+- Treat every requirement below as an explicit, trackable task.
+- Assign each task a stable ID (e.g., TASK-1.1) and use checklist items in outputs.
+- Keep tasks grouped under the same headings to preserve traceability.
+- Produce outputs as Markdown documents with task checklists; include code only in fenced blocks when required.
+- Preserve scope exactly as written; do not drop or add requirements.
+
+## Asset and Threat Modeling Task Requirements
+
+### 1. Asset Inventory and Classification
+- **Critical Assets**: Identify critical systems, databases, and key services
+- **Data Classification**: Map PII, financial data, credentials, and regulated data
+- **Trust Boundaries**: Analyze trust boundaries between components and services
+- **System Dependencies**: Document dependencies and integration points
+- **Asset Value**: Assess business criticality and impact of compromise
+
+### 2. Attack Surface Analysis
+- **External Exposure**: Map public-facing endpoints, APIs, and services
+- **Entry Points**: Identify authentication endpoints, admin portals, and webhooks
+- **Third-Party Access**: Review partner integrations and shared access points
+- **Shadow IT**: Detect unmanaged assets and shadow services
+- **Digital Footprint**: Analyze exposed information and reconnaissance data
+
+### 3. Threat Modeling
+- **STRIDE Analysis**: Apply STRIDE methodology to components
+- **Attack Trees**: Map potential attack paths and escalation scenarios
+- **Threat Actors**: Profile likely threat actors and their capabilities
+- **Abuse Cases**: Identify business logic abuse and misuse scenarios
+- **Impact Assessment**: Evaluate potential impact of successful attacks
+
+## Authentication and Authorization Task Requirements
+
+### 1. Identity and Access Management
+- **Authentication Mechanisms**: Review login systems, MFA, and credential handling
+- **Identity Providers**: Analyze IdP configuration and federation security
+- **Token Security**: Examine JWT, session tokens, and cookie security
+- **Password Policies**: Assess password strength, hashing, and rotation policies
+- **Account Recovery**: Review password reset and account recovery flows
+
+### 2. Authorization and Privilege Management
+- **Access Control Models**: Analyze RBAC/ABAC implementation and gaps
+- **Privilege Escalation**: Identify horizontal and vertical escalation paths
+- **Least Privilege**: Review excessive permissions and privilege creep
+- **Authorization Enforcement**: Ensure consistent enforcement across layers
+- **Admin Access**: Assess administrative interface security and protection
+
+### 3. Session Security
+- **Session Management**: Review session lifetime, rotation, and invalidation
+- **Session Fixation**: Analyze session fixation protection
+- **Concurrent Sessions**: Examine concurrent session limits and handling
+- **Session Storage**: Assess session storage security and encryption
+- **Logout Behavior**: Review complete logout and session cleanup
+
+## Input Validation and Injection Defense Task Requirements
+
+### 1. Injection Vulnerabilities
+- **SQL Injection**: Identify vulnerable database queries and parameterization issues
+- **NoSQL Injection**: Analyze NoSQL-specific injection vulnerabilities
+- **Command Injection**: Review OS command execution and shell escape issues
+- **LDAP Injection**: Examine LDAP query injection risks
+- **Template Injection**: Analyze template engine injection vulnerabilities
+
+### 2. Cross-Site Scripting (XSS)
+- **Reflected XSS**: Identify reflected XSS vulnerabilities in input handling
+- **Stored XSS**: Analyze stored XSS in user-generated content
+- **DOM XSS**: Review DOM-based XSS in client-side code
+- **Content Security Policy**: Assess CSP implementation and effectiveness
+- **Output Encoding**: Examine output encoding and sanitization
+
+### 3. Input Validation and Sanitization
+- **Input Validation**: Review validation rules, type checking, and bounds
+- **File Upload Security**: Analyze file type validation, size limits, and execution prevention
+- **Path Traversal**: Examine directory traversal and path manipulation risks
+- **HTTP Parameter Pollution**: Review HPP vulnerabilities
+- **Mass Assignment**: Identify mass assignment and over-posting risks
+
+### 4. Deserialization and Parsing
+- **Unsafe Deserialization**: Identify unsafe deserialization vulnerabilities
+- **XML External Entities**: Analyze XXE vulnerabilities in XML parsers
+- **JSON Parsing**: Review JSON parsing and prototype pollution risks
+- **YAML Parsing**: Examine YAML parsing security issues
+- **Parser Configuration**: Assess secure parser configuration
+
+## Data Protection and Privacy Task Requirements
+
+### 1. Encryption and Cryptography
+- **Data at Rest**: Review encryption of stored data and databases
+- **Data in Transit**: Analyze TLS/SSL configuration and implementation
+- **Key Management**: Assess cryptographic key storage, rotation, and access
+- **Algorithm Selection**: Review encryption algorithm and key length choices
+- **Random Number Generation**: Examine RNG quality and usage
+
+### 2. Secrets Management
+- **Secret Storage**: Review storage of API keys, passwords, and certificates
+- **Hardcoded Secrets**: Identify hardcoded credentials in source code
+- **Secret Rotation**: Analyze secret rotation policies and implementation
+- **Environment Variables**: Examine environment variable security
+- **Vault Integration**: Assess secret vault and management service usage
+
+### 3. Data Privacy and Compliance
+- **PII Handling**: Analyze personal data processing and storage
+- **Data Minimization**: Review data collection and retention practices
+- **Consent Management**: Assess consent tracking and compliance
+- **Data Residency**: Evaluate data residency and cross-border transfer compliance
+- **Right to be Forgotten**: Review data deletion capabilities
+
+### 4. Logging and Data Leakage
+- **Log Security**: Examine logs for sensitive information leakage
+- **Error Messages**: Review error messages for information disclosure
+- **Debug Information**: Identify debug information in production
+- **Comment Leakage**: Analyze code comments for sensitive data
+- **Analytics Data**: Assess data shared with analytics services
+
+## Network and Infrastructure Security Task Requirements
+
+### 1. Network Security
+- **Network Segmentation**: Review network segmentation and isolation
+- **Firewall Rules**: Analyze firewall rule configuration and gaps
+- **Ingress/Egress Controls**: Examine ingress and egress filtering
+- **VPN Security**: Assess VPN configuration and access control
+- **Wireless Security**: Review wireless network security
+
+### 2. API Security
+- **Authentication**: Review API authentication and token handling
+- **Authorization**: Analyze API authorization and permission checks
+- **Rate Limiting**: Examine rate limiting and throttling implementation
+- **Input Validation**: Assess API input validation and sanitization
+- **API Versioning**: Review API versioning and deprecation security
+
+### 3. Web Security
+- **HTTPS Enforcement**: Verify TLS configuration and redirect behavior
+- **Security Headers**: Analyze HSTS, X-Frame-Options, CSP, and other headers
+- **CORS Configuration**: Review CORS policy and restrictions
+- **Cookie Security**: Examine Secure, HttpOnly, and SameSite cookie flags
+- **WAF Configuration**: Assess web application firewall rules and effectiveness
+
+### 4. Container and Cloud Security
+- **Container Hardening**: Review container image and runtime security
+- **Cloud Configuration**: Analyze cloud service security configurations
+- **IAM Policies**: Examine cloud IAM policies and excessive permissions
+- **Secret Management**: Assess cloud secret management practices
+- **Network Security Groups**: Review cloud network security configurations
+
+## Dependency and Supply Chain Task Requirements
+
+### 1. Dependency Management
+- **Vulnerability Scanning**: Scan dependencies for known CVEs
+- **Version Management**: Review dependency version updates and patching
+- **Transitive Dependencies**: Analyze transitive dependency risks
+- **Dependency Confusion**: Assess dependency substitution risks
+- **SBOM Generation**: Evaluate software bill of materials coverage
+
+### 2. Build and Deployment Security
+- **Build Pipeline**: Review CI/CD pipeline security and access controls
+- **Artifact Integrity**: Analyze artifact signing and verification
+- **Code Signing**: Review code signing practices and key management
+- **Deployment Automation**: Assess secure deployment practices
+- **Infrastructure as Code**: Review IaC security configurations
+
+### 3. Third-Party Risk
+- **Vendor Assessments**: Review third-party security assessments
+- **SLA Security**: Analyze vendor security commitments and incident response
+- **Data Sharing**: Assess data shared with third parties and protections
+- **Sub-Processor Risk**: Evaluate vendor sub-processor risks
+- **Open Source Licensing**: Review open source license compliance
+
+## Monitoring and Incident Response Task Requirements
+
+### 1. Security Monitoring
+- **Log Collection**: Review log collection and centralization
+- **SIEM Configuration**: Analyze SIEM rules and alerting
+- **Detection Coverage**: Assess coverage of security-relevant events
+- **Correlation Rules**: Review event correlation and analysis rules
+- **Threat Intelligence**: Evaluate threat intelligence integration
+
+### 2. Incident Response
+- **Playbooks**: Review incident response playbooks completeness
+- **Escalation Procedures**: Analyze escalation paths and notification procedures
+- **Forensic Readiness**: Assess evidence collection and preservation capabilities
+- **Communication Plan**: Review incident communication procedures
+- **Drill Results**: Evaluate incident response drill performance
+
+### 3. Continuous Security
+- **Vulnerability Management**: Review vulnerability scanning and remediation processes
+- **Penetration Testing**: Analyze penetration testing coverage and findings
+- **Security Awareness**: Assess security training and awareness programs
+- **Policy Compliance**: Review security policy compliance and enforcement
+- **Metrics and KPIs**: Evaluate security metrics and improvement tracking
+
+## Agent System and Prompt Security Task Requirements (if applicable)
+
+If the target system includes LLM agents, prompts, tool use, memory, or other orchestration, also perform the following risk analysis.
+
+### 1. Prompt Injection and Instruction Poisoning
+- **Direct Prompt Injection**: Identify untrusted user inputs that can modify instructions or intent
+- **Instruction Override**: Detect mechanisms for overriding system or role instructions
+- **Prompt Layering Conflicts**: Analyze risks from layered prompts and conflicting instructions
+- **Indirect Injection Channels**: Tool output injection, document-based injection, metadata/header injection, reference injection
+- **Jailbreak Patterns**: Known jailbreak patterns, encoding-based bypass, split injection across turns, recursive overrides
+
+### 2. Memory and Context Integrity
+- **Memory Provenance**: Verify where memory/context comes from and whether it is trusted
+- **Cross-Session and Cross-User Isolation**: Detect session contamination and user-context mixing risks
+- **Truncation Risks**: Identify guardrail loss due to context size limits and truncation
+- **Persistence Controls**: Review persistence scope, overwrite behavior, and cleanup of stale context
+- **Schema and Validation**: Ensure structured memory is validated on write and read
+
+### 3. Output Safety and Data Exfiltration
+- **Sensitive Information Leakage**: Secrets, credentials, internal instructions, private data, system configuration
+- **Unsafe Output Rendering**: Script/markup injection, executable code, unsafe deserialization, command construction
+- **Encoding Evasion**: Unicode tricks, Base64/encoding variants, obfuscation techniques
+- **Data Minimization**: Over-sharing, verbose errors, debug output, unnecessary response enrichment
+- **Redaction and Filtering**: Redaction correctness, filter bypass risks, post-processing controls
+
+### 4. Authorization and Tool Access Control
+- **File System Boundaries**: Path validation, traversal protection, read/write boundaries, symlink risks
+- **Tool Authorization**: Authorization checks before tool invocation, least-privilege capability scoping
+- **Resource Limits**: Quotas, timeouts, and denial-of-service protections for tool usage
+- **Auditability**: Access logging, action audit trails, and tamper resistance
+
+### 5. Tooling and External Integrations
+- **Tool Input Validation**: Parameter validation, safe argument construction, injection risks
+- **External Service Security**: Authn/authz, data transmission, rate limiting, and failure behavior
+- **Supply Chain Risks**: Third-party dependencies, integrity verification, update mechanisms
+- **Sandbox Boundaries**: Isolation guarantees, escape risks, and cross-boundary communication controls
+
+### 6. Monitoring and Response for Agent Abuse
+- **Detection**: Logging and alerting for injection attempts, policy violations, anomalous tool usage
+- **Incident Playbooks**: Prompt injection, data exfiltration, credential exposure, and tool abuse scenarios
+- **Forensic Readiness**: Trace retention and evidence preservation for agent/tool actions
+
+## Bug Risk and Stability Task Requirements (if applicable)
+
+If the target includes code changes, critical workflows, or agent orchestration, also assess bug risk and runtime stability risks.
+
+### 1. Workflow and Orchestration Bug Risks (Agents/Prompts)
+- **State Transitions**: Invalid transitions, missing transitions, unreachable states, and recovery paths
+- **Termination Conditions**: Infinite loops, premature exits, cleanup guarantees, final state validation
+- **Handoffs**: Missing handoffs, context preservation across phases, error propagation, and fallbacks
+- **Trigger Conflicts**: Overlapping triggers, unclear precedence, ambiguous language, underspecified defaults
+- **Multiple Matches**: Behavior when multiple agents or rules match the same request
+- **Memory/Context Bugs**: Missing context, stale memory use, contradictory entries, truncation handling
+- **Tooling Failures**: Preconditions, timeouts/retries, partial results, non-deterministic outputs, escalation paths
+- **File/IO Hygiene**: Temp artifact buildup, path safety, atomic writes, concurrent access, permissions failures
+- **Concurrency**: Shared-state races, event ordering assumptions, locking gaps, deadlock potential
+
+### 2. Codebase Runtime and Integration Bug Risks
+- **Runtime Errors**: Null/undefined references, type mismatches, bounds errors, exception propagation
+- **Resource Management**: Leaks (files/sockets/db), pool exhaustion, cleanup on failure paths
+- **Concurrency and Transactions**: Race conditions, deadlocks, async hazards, transaction isolation issues
+- **Business Logic Failures**: Workflow bypasses, TOCTOU, precision/financial logic, rate-limit bypasses
+- **Integration Failures**: External dependency timeouts, retries/backoff, webhook validation/replay, queue semantics
+- **Resilience**: Graceful degradation, retry storms, partial outage behavior, data consistency and reconciliation
+
+## Platform-Specific Appendix (Optional): .NET Web API Checks
+
+If the target is an ASP.NET Core / .NET Web API, include these checks in addition to the general items above.
+
+### 1. Authentication and Authorization
+- **Auth Schemes**: Correct scheme selection and configuration (JWT/cookies/OAuth), token validation, claim mapping
+- **Authorization Coverage**: Consistent policy/role enforcement across endpoints, IDOR and multi-tenant boundaries
+- **Session and Cookie Security**: Secure/HttpOnly/SameSite, session lifetime, refresh token handling
+
+### 2. Input Validation and Model Binding
+- **Model Validation**: DataAnnotations, custom validators, and consistent request validation behavior
+- **Request Limits**: Body size limits, file upload constraints, safe deserialization settings
+- **CORS and CSRF**: Correct CORS policies; CSRF protections when cookie auth is used
+
+### 3. Data Access and Injection
+- **ORM Safety**: Parameterized queries, safe raw SQL usage, transaction correctness, connection string protection
+
+### 4. Secrets, Crypto, and Data Protection
+- **Secrets Handling**: Avoid hardcoded secrets; validate secret storage/rotation (env vars, vaults, CI)
+- **Data Protection Keys**: Key storage, rotation, and environment-specific configuration
+
+### 5. HTTP Hardening and Abuse Prevention
+- **Transport Security**: HTTPS redirection, HSTS, certificate handling behind proxies
+- **Security Headers**: Standard header set and correct proxy/header forwarding configuration
+- **Rate Limiting**: Abuse prevention, throttling, and safe failure modes
+
+### 6. Dependencies and Observability
+- **NuGet Supply Chain**: Dependency scanning, pinned versions/lock files, build provenance
+- **Logging**: Sensitive data redaction, correlation IDs, consistent exception handling middleware
+
+## Optional: Reusable Templates (TODO Content Only)
+
+If the request is to create reusable templates (rather than perform an audit), include the template content inside `TODO_cyber-security-audit-request.md` under a "Templates" section. Do not create separate files.
+
+### 1. Scope and System Overview Placeholders
+- **System Boundaries**: Components, data flows, and trust boundaries
+- **Assumptions and Constraints**: In-scope/out-of-scope and unknowns
+- **Asset Inventory**: Critical assets, data stores, and integrations
+- **Data Classification**: PII, credentials, regulated data, retention
+
+### 2. Threat Modeling Placeholders
+- **Attack Surface Mapping**: Entry points, exposed APIs, admin surfaces
+- **STRIDE**: STRIDE mapping per component and boundary
+- **Abuse Cases**: Business logic misuse and workflow bypass scenarios
+- **Threat Actors**: Likely actors and capabilities
+- **Impact Assessment**: Business and technical impact rubric
+
+### 3. Security and Bug-Risk Section Templates
+- **Security Sections**: Authn/authz, input validation, data protection, network/API, infra/config, monitoring/IR, supply chain
+- **Bug-Risk Sections**: Runtime errors, resource management, concurrency, business logic failures, integration/resilience risks
+
+### 4. Consistency and Quality Gates
+- **Required Fields**: Standard headings and required fields for every finding
+- **Terminology**: Consistent risk levels and scoring guidance
+- **Reviewer Checklist**: A checklist reviewers can apply before publishing
+- **Validation Criteria**: How to validate that the template output is complete and usable
+
+## Output (TODO Only)
+
+Write all findings, assessments, and recommendations to `TODO_cyber-security-audit-request.md` only. Do not create any other files.
+
+## Output Format (Task-Based)
+
+Every finding or recommendation must include a unique Task ID and be expressed as a trackable checklist item.
+
+In `TODO_cyber-security-audit-request.md`, include:
+
+### Executive Summary
+- Overall security posture assessment
+- Most critical vulnerabilities identified
+- Risk level distribution (Critical/High/Medium/Low)
+- Immediate action items
+
+### Detailed Findings
+- **Finding Title**: Clear, descriptive name
+- **Category**: Security / Agent & Prompt Security / Bug Risk / Reliability
+- **Location**: Specific file paths, systems, or components
+- **Description**: Detailed explanation of the issue
+- **Attack or Failure Scenario**: Exploitation path or failure mode with prerequisites
+- **Score**: CVSS (if applicable) or severity/likelihood rating
+- **Risk Level**: Critical/High/Medium/Low based on exploitability and impact
+- **Business Impact**: Potential consequences including data breach, service disruption
+- **Technical Impact**: System integrity, availability, and confidentiality effects
+- **Remediation**: Concrete fixes and secure patterns
+- **Validation**: Tests, checks, monitoring, or reproduction steps to confirm the fix
+- **References**: OWASP/CWE/CVE references where applicable
+
+### Remediation Recommendations
+- **Immediate Actions**: Critical fixes that should be implemented immediately
+- **Short-term Solutions**: Security improvements for the next sprint/release
+- **Long-term Strategy**: Architectural changes and security enhancements
+- **Code Examples**: Secure coding patterns and implementation examples
+- **Tools & Libraries**: Recommended security tools and defensive libraries
+- **Testing Strategies**: Security testing approaches and validation methods
+
+### Effort & Priority Assessment
+- **Implementation Effort**: Development time estimation (hours/days/weeks)
+- **Complexity Level**: Simple/Moderate/Complex based on technical requirements
+- **Dependencies**: Prerequisites and coordination requirements
+- **Priority Score**: Combined risk and effort matrix for prioritization
+
+## Quality Assurance Task Checklist
+
+### Evidence-Based Analysis
+- Provide specific evidence with configuration references and proof
+- Include actual screenshots, logs, or code snippets demonstrating vulnerabilities
+- Reference industry standards (OWASP Top 10, CWE, NIST, ISO 27001)
+- Cite relevant security frameworks and compliance requirements
+
+### Actionable Recommendations
+- Provide concrete, implementable solutions
+- Include secure code examples and best practices
+- Suggest appropriate security tools and libraries
+- Recommend testing and validation approaches
+
+### Risk Contextualization
+- Consider the organization's threat model and attack surface
+- Assess likelihood of exploitation in the current environment
+- Evaluate potential impact on business operations and users
+- Prioritize based on real-world risk rather than theoretical vulnerabilities
+
+## Additional Task Focus Areas
+
+### Modern Security Practices
+- Zero Trust Architecture principles and implementation
+- Supply Chain Security assessment and improvements
+- DevSecOps integration and security automation
+- Cloud Native Security best practices
+- SASE and SSE architecture considerations
+
+### Compliance and Standards
+- GDPR, CCPA, and privacy regulations compliance
+- Industry-specific requirements (PCI DSS, HIPAA, SOX)
+- Security frameworks (NIST CSF, ISO 27001, SOC 2)
+- Secure development lifecycle (SDL) integration
+
+Please begin the comprehensive cybersecurity audit, focusing on identifying the most critical issues that could impact system security, data protection, and organizational risk.
+
+---
+**RULE:** When using this prompt, you must create a file named `TODO_cyber-security-audit-request.md`. This file must contain the findings resulting from this research as checkable checkboxes that can be coded and tracked by an LLM.

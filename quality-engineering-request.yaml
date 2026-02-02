@@ -1,0 +1,333 @@
+---
+name: quality-engineering-request
+description: Design a risk-based quality strategy with measurable outcomes, automation, and quality gates.
+---
+
+# Quality Engineering Request
+
+Please design a comprehensive quality strategy for the project. This analysis will help us establish risk-based testing practices, edge-case detection methods, automation approaches, and measurable quality outcomes that ensure system reliability and user satisfaction.
+
+## Task-Oriented Execution Model
+- Treat every requirement below as an explicit, trackable task.
+- Assign each task a stable ID (e.g., TASK-1.1) and use checklist items in outputs.
+- Keep tasks grouped under the same headings to preserve traceability.
+- Produce outputs as Markdown documents with task checklists; include code only in fenced blocks when required.
+- Preserve scope exactly as written; do not drop or add requirements.
+
+## Test Strategy and Scope Task Requirements
+
+### 1. Test Pyramid Design
+- **Unit Testing**: Define scope and coverage targets for unit tests
+- **Integration Testing**: Establish integration test boundaries and responsibilities
+- **End-to-End Testing**: Identify critical user flows requiring e2e validation
+- **Component Testing**: Define component-level testing for isolated modules
+- **Contract Testing**: Establish contract testing for service boundaries
+- **Ownership**: Clarify ownership for each test layer
+
+### 2. Critical User Flows
+- **Happy Paths**: Identify primary success paths through the system
+- **Business-Critical Operations**: Map revenue and compliance-critical flows
+- **User Registration**: Onboarding and authentication flows
+- **Checkout/Payment**: Transaction-critical payment flows
+- **Data Modification**: Create, update, and delete operations
+- **Search and Discovery**: User search and content discovery flows
+
+### 3. Risk-Based Testing
+- **High-Risk Components**: Identify components with highest failure impact
+- **Risk Assessment Matrix**: Map components by likelihood and impact
+- **Test Coverage Priority**: Prioritize coverage based on risk
+- **Regression Focus**: Focus regression testing on high-risk areas
+- **Acceptance Criteria**: Define risk-based acceptance criteria
+- **Quality Gates**: Establish gates tied to risk levels
+
+### 4. Scope Boundaries
+- **In-Scope Components**: Clearly define components in testing scope
+- **Out-of-Scope Areas**: Explicitly document exclusions and rationale
+- **Third-Party Dependencies**: Define testing approach for external services
+- **Legacy Systems**: Establish testing approach for legacy components
+- **Mocked Services**: Identify services to mock vs integrate
+
+## Edge Cases and Negative Testing Task Requirements
+
+### 1. Boundary Conditions
+- **Input Boundaries**: Test min, max, and boundary values for all inputs
+- **Numeric Limits**: Test integer overflow, underflow, and precision
+- **String Length**: Validate string length limits and truncation
+- **Array Limits**: Test empty, single, and maximum array sizes
+- **Date/Time Boundaries**: Test date/time edge cases (leap years, time zones)
+- **Resource Limits**: Test behavior at resource limits (memory, disk)
+
+### 2. Invalid Input Testing
+- **Null and Undefined**: Verify null/undefined handling throughout
+- **Type Mismatches**: Test incorrect types for all inputs
+- **Malformed Data**: Validate handling of malformed data structures
+- **Missing Fields**: Test behavior with missing required fields
+- **Extra Fields**: Test handling of unexpected fields
+- **Encoding Issues**: Test various character encodings and Unicode
+
+### 3. Concurrency and Race Conditions
+- **Concurrent Access**: Test simultaneous access to shared resources
+- **Race Conditions**: Identify and test potential race conditions
+- **Deadlock Scenarios**: Test for deadlock possibilities
+- **Lock Contention**: Verify behavior under lock contention
+- **Transaction Conflicts**: Test transaction conflict handling
+- **Async Operations**: Validate async operation correctness under load
+
+### 4. Dependency Failures
+- **Service Unavailability**: Test behavior when services are unavailable
+- **Network Failures**: Validate handling of network timeouts and failures
+- **Database Connection Issues**: Test database connection failure scenarios
+- **External API Failures**: Test external API timeout and error handling
+- **Partial Failures**: Validate behavior when some dependencies fail
+- **Cascading Failures**: Test resilience against cascading failures
+
+### 5. Security Abuse Testing
+- **Injection Attempts**: Test SQL, XSS, and command injection attempts
+- **Authentication Abuse**: Test brute force and session hijacking attempts
+- **Authorization Bypass**: Test privilege escalation and IDOR vulnerabilities
+- **Rate Limiting Abuse**: Test rate limiting enforcement and bypasses
+- **Input Flood**: Test behavior with excessive input volume
+- **Malicious Payloads**: Test handling of malicious file uploads and payloads
+
+## Automation and CI/CD Integration Task Requirements
+
+### 1. Test Framework Selection
+- **Framework Recommendations**: Recommend appropriate testing frameworks
+- **Language-Specific Tools**: Suggest tools for each language in use
+- **Test Runners**: Define test runner configuration and parallelization
+- **Assertion Libraries**: Recommend assertion libraries and matcher libraries
+- **Mock/Stub Tools**: Suggest mocking and stubbing tools
+- **Coverage Tools**: Define code coverage tools and configuration
+
+### 2. Pipeline Integration
+- **CI Pipeline Design**: Design CI pipeline for automated test execution
+- **Test Stages**: Define test stages and their execution order
+- **Parallelization Strategy**: Establish parallel test execution strategy
+- **Distributed Testing**: Design distributed test execution architecture
+- **Pipeline Optimization**: Optimize pipeline execution time and resource usage
+- **Artifact Management**: Define test artifact storage and retention
+
+### 3. Flake Management
+- **Flake Detection**: Establish flaky test detection mechanisms
+- **Retry Logic**: Define retry strategies for potentially flaky tests
+- **Quarantine Process**: Create process for quarantining flaky tests
+- **Root Cause Analysis**: Mandate RCA for recurring flakes
+- **Test Stability Metrics**: Track and report test stability metrics
+- **Flake Remediation**: Define remediation process for flaky tests
+
+### 4. Test Data Management
+- **Test Data Strategy**: Define synthetic vs anonymized production data usage
+- **Data Factory**: Design test data factory and fixture management
+- **Environment Parity**: Ensure test data matches production characteristics
+- **Data Cleanup**: Define cleanup procedures for test data
+- **Seed Data Management**: Establish seed data for consistent test execution
+- **PII Handling**: Ensure PII protection in test data
+
+### 5. Test Execution Time Management
+- **Test Time Budgets**: Define maximum execution time per test suite
+- **Test Categorization**: Categorize tests by execution time (fast, medium, slow)
+- **Selective Execution**: Enable selective test execution based on changes
+- **Parallel Execution**: Maximize parallel test execution
+- **Incremental Testing**: Implement incremental testing strategies
+- **Performance Thresholds**: Set thresholds for test execution time
+
+### 6. Quality Gates
+- **Gate Definitions**: Define quality gates for each pipeline stage
+- **Coverage Thresholds**: Establish minimum coverage thresholds
+- **Failure Rate Limits**: Set acceptable failure rate limits
+- **Performance Benchmarks**: Define performance benchmarks as gates
+- **Security Scan Requirements**: Mandate security scan success
+- **Manual Review Triggers**: Define conditions requiring manual review
+
+## Coverage and Quality Metrics Task Requirements
+
+### 1. Coverage Goals
+- **Unit Test Coverage**: Define target unit test coverage percentage
+- **Integration Coverage**: Establish integration test coverage targets
+- **Branch Coverage**: Set branch coverage targets for critical paths
+- **Path Coverage**: Define path coverage goals for complex logic
+- **Risk-Based Coverage**: Prioritize coverage based on component risk
+- **Incremental Coverage**: Track coverage for new code separately
+
+### 2. Defect Metrics
+- **Defect Density**: Track defects per lines of code
+- **Defect Escape Rate**: Measure defects escaping to production
+- **Time to Detection**: Track time from introduction to detection
+- **Defect Severity Distribution**: Monitor defect severity trends
+- **Reopened Defect Rate**: Track defect reopening rate
+- **Quality Trend Analysis**: Analyze quality trends over time
+
+### 3. Observability for Testing
+- **Test Result Visibility**: Ensure test results are visible and accessible
+- **Failure Diagnostics**: Provide detailed failure diagnostics
+- **Test Reports**: Generate comprehensive test execution reports
+- **Trend Dashboards**: Create dashboards for quality trends
+- **Alert Integration**: Integrate quality alerts into monitoring systems
+- **Historical Analysis**: Enable historical test result analysis
+
+### 4. Exit Criteria
+- **Release Readiness**: Define measurable release readiness criteria
+- **Quality Thresholds**: Establish quality thresholds for promotion
+- **Sign-off Requirements**: Define required sign-offs for release
+- **Pre-Production Validation**: Establish pre-production test requirements
+- **Production Monitoring**: Define post-deployment monitoring requirements
+- **Rollback Triggers**: Set quality-based rollback triggers
+
+## Non-Functional Testing Task Requirements
+
+### 1. Performance Testing
+- **Load Testing**: Define load testing strategy and targets
+- **Stress Testing**: Establish stress testing scenarios and limits
+- **Spike Testing**: Test system behavior under sudden load spikes
+- **Endurance Testing**: Validate system stability over extended periods
+- **Scalability Testing**: Test horizontal and vertical scaling
+- **Performance Baselines**: Establish performance baselines and regression detection
+
+### 2. Security Testing
+- **Vulnerability Scanning**: Integrate automated vulnerability scanning
+- **Dependency Scanning**: Scan dependencies for known vulnerabilities
+- **Secrets Detection**: Detect secrets in code and configurations
+- **Authentication Testing**: Test authentication and authorization mechanisms
+- **Input Validation Testing**: Verify input validation and sanitization
+- **Compliance Testing**: Test compliance with security standards
+
+### 3. Accessibility Testing
+- **WCAG Compliance**: Test against WCAG guidelines
+- **Screen Reader Testing**: Validate screen reader compatibility
+- **Keyboard Navigation**: Ensure full keyboard accessibility
+- **Color Contrast**: Verify color contrast ratios
+- **Alternative Text**: Test alternative text for images
+- **Focus Management**: Validate focus management and visibility
+
+### 4. Compatibility Testing
+- **Browser Compatibility**: Test across supported browsers
+- **Device Testing**: Test on various device types and sizes
+- **OS Compatibility**: Validate compatibility across operating systems
+- **Version Compatibility**: Test backward compatibility
+- **API Versioning**: Test API version compatibility
+- **Database Compatibility**: Test across database versions
+
+### 5. Chaos Engineering
+- **Fault Injection**: Design fault injection experiments
+- **Failure Scenarios**: Define realistic failure scenarios to test
+- **Resilience Validation**: Validate system resilience under stress
+- **Recovery Testing**: Test recovery time objectives
+- **Cascading Failure Prevention**: Test against cascading failures
+- **Graceful Degradation**: Validate graceful degradation behavior
+
+## Defect Management and Continuous Improvement Task Requirements
+
+### 1. Triage Process
+- **Severity Definitions**: Define clear severity levels and criteria
+- **Priority Guidelines**: Establish priority assignment guidelines
+- **Triage Workflow**: Define triage meeting cadence and participants
+- **Assignment Rules**: Establish bug assignment rules and ownership
+- **SLA Definitions**: Define response and resolution SLAs by severity
+- **Escalation Paths**: Create escalation paths for critical issues
+
+### 2. Root Cause Review
+- **RCA Process**: Define root cause analysis process for defects
+- **Prevention Practices**: Establish defect prevention practices
+- **Pattern Recognition**: Identify and address recurring defect patterns
+- **Process Improvement**: Drive process improvements from RCA findings
+- **Knowledge Sharing**: Share learnings from root cause analyses
+- **Metrics Tracking**: Track effectiveness of prevention measures
+
+### 3. Feedback Loops
+- **Production Feedback**: Incorporate production defect feedback
+- **User Feedback**: Integrate user-reported issues into quality process
+- **Stakeholder Reviews**: Conduct regular quality reviews with stakeholders
+- **Retrospectives**: Hold quality retrospectives for improvement
+- **Metric Reviews**: Review and adjust quality metrics regularly
+- **Adaptation Process**: Establish process for adapting strategy
+
+### 4. Process Metrics
+- **Cycle Time**: Track defect fix cycle time
+- **Re-open Rate**: Monitor defect re-open rate
+- **Escape Rate**: Track defect escape rate to production
+- **Test Execution Time**: Monitor test execution time trends
+- **Automation Coverage**: Track test automation coverage growth
+- **ROI Assessment**: Assess ROI of quality initiatives
+
+## Output (TODO Only)
+
+Write all strategy, findings, and recommendations to `TODO_quality-engineering-request.md` only. Do not create any other files.
+
+## Output Format (Task-Based)
+
+Every finding or recommendation must include a unique Task ID and be expressed as a trackable checklist item.
+
+In `TODO_quality-engineering-request.md`, include:
+
+### Executive Summary
+- Overall quality maturity assessment
+- Most critical coverage gaps identified
+- Risk level distribution (Critical/High/Medium/Low)
+- Immediate action items
+- Quality maturity score
+
+### Detailed Findings
+- **Area**: Quality area, component, or feature
+- **Goal**: What the tests prove or validate
+- **Scope**: Components and behaviors covered
+- **Risk Level**: High/Medium/Low based on impact
+- **Priority**: Ordering of the work
+- **Scenarios**: Key scenarios and edge cases
+- **Tooling**: Recommended frameworks and runners
+- **Success Criteria**: Pass/fail conditions and thresholds
+- **Automation Level**: Automated vs manual coverage expectations
+- **Effort**: Estimated effort to implement
+
+### Remediation Recommendations
+- **Immediate Actions**: Critical tests or fixes to add now
+- **Short-term Solutions**: Improvements for the next release cycle
+- **Long-term Strategy**: Scalable automation and quality practices
+- **Framework Examples**: Recommended tooling and patterns
+- **Data Strategy**: Test data management and environment parity
+- **Validation Strategies**: How to validate quality gates
+
+### Effort & Priority Assessment
+- **Implementation Effort**: Development time estimation (hours/days/weeks)
+- **Complexity Level**: Simple/Moderate/Complex based on technical requirements
+- **Dependencies**: Prerequisites and coordination requirements
+- **Priority Score**: Combined risk and effort matrix for prioritization
+- **ROI Projection**: Expected return on investment
+
+## Quality Assurance Task Checklist
+
+### Evidence-Based Analysis
+- **Requirement Mapping**: Map tests to requirements or risk statements
+- **Coverage References**: Cite relevant code areas, services, or critical paths
+- **Data Sources**: Reference current test and defect data if available
+- **Risk Analysis**: Base recommendations on identified risks
+
+### Actionable Recommendations
+- **Concrete Scenarios**: Avoid vague test descriptions; provide concrete scenarios
+- **Automation Clarity**: Distinguish automated vs manual tests clearly
+- **Gate Verification**: Provide verification steps for quality gates
+- **Tooling Specifics**: Recommend specific tools and configurations
+
+### Risk Contextualization
+- **Critical Flow Focus**: Prioritize coverage for business-critical flows
+- **Failure Impact**: Describe user and operational impact for gaps
+- **Release Impact**: Note release risks if coverage is missing
+- **Business Risk**: Connect technical quality to business risk
+
+## Additional Task Focus Areas
+
+### Stability and Regression
+- **Regression Risk**: Assess regression risk for critical flows
+- **Flakiness Prevention**: Establish flakiness prevention practices
+- **Test Stability**: Monitor and improve test stability
+- **Release Confidence**: Define indicators for release confidence
+
+### Non-Functional Coverage
+- **Reliability Targets**: Define reliability and resilience expectations
+- **Performance Baselines**: Establish performance baselines and alert thresholds
+- **Security Baseline**: Define baseline security checks in CI
+- **Compliance Coverage**: Ensure compliance requirements are tested
+
+Please begin the quality strategy design, focusing on risk-based coverage and measurable outcomes.
+
+---
+**RULE:** When using this prompt, you must create a file named `TODO_quality-engineering-request.md`. This file must contain the findings resulting from this research as checkable checkboxes that can be coded and tracked by an LLM.

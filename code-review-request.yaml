@@ -1,0 +1,203 @@
+---
+name: code-review-request
+description: Run a comprehensive code review (correctness, security, performance, maintainability).
+---
+
+# Code Review Request
+
+Please perform a comprehensive code review of our existing codebase. This analysis will help us identify critical defects, security vulnerabilities, performance issues, and maintainability concerns that could impact system quality, reliability, and technical debt accumulation.
+
+## Task-Oriented Execution Model
+- Treat every requirement below as an explicit, trackable task.
+- Assign each task a stable ID (e.g., TASK-1.1) and use checklist items in outputs.
+- Keep tasks grouped under the same headings to preserve traceability.
+- Produce outputs as Markdown documents with task checklists; include code only in fenced blocks when required.
+- Preserve scope exactly as written; do not drop or add requirements.
+
+## Correctness and Logic Task Requirements
+
+### 1. Null and Type Safety
+- **Null Reference Errors**: Identify potential null pointer exceptions and undefined variable access
+- **Type Mismatches**: Analyze type casting issues and implicit type conversion risks
+- **Boundary Conditions**: Review array bounds, off-by-one errors, and edge cases
+- **Optional Handling**: Examine optional/nullable value handling and default assumptions
+- **Type Guards**: Assess type guard completeness and type narrowing patterns
+
+### 2. Resource and Exception Management
+- **Resource Leaks**: Identify unclosed file handles, database connections, and network sockets
+- **Exception Handling**: Analyze try-catch block coverage and error propagation patterns
+- **Cleanup Logic**: Examine finally blocks, destructors, and cleanup guarantees
+- **Resource Timing**: Review resource lifetime management and premature release risks
+- **Exception Swallowing**: Detect swallowed exceptions and misleading success paths
+
+### 3. State and Concurrency
+- **State Transitions**: Identify invalid state transitions and unreachable states
+- **Race Conditions**: Analyze shared resource access without proper synchronization
+- **Deadlock Risks**: Review locking order and potential deadlock scenarios
+- **Atomic Operations**: Examine non-atomic read-modify-write sequences
+- **Memory Visibility**: Assess memory visibility across threads and async boundaries
+
+### 4. Data Integrity and Validation
+- **Input Validation**: Analyze input sanitization and validation coverage
+- **Schema Enforcement**: Review data contract enforcement and schema validation
+- **Transaction Integrity**: Examine transaction boundaries and partial update risks
+- **Idempotency**: Assess idempotent behavior where required
+- **Data Consistency**: Identify inconsistent state and data corruption risks
+
+## Security Review Task Requirements
+
+### 1. Injection Vulnerabilities
+- **SQL Injection**: Identify vulnerable database queries and parameterization issues
+- **Command Injection**: Review system command execution and shell escape vulnerabilities
+- **Template Injection**: Analyze template rendering and injection risks
+- **LDAP/NoSQL Injection**: Examine NoSQL and LDAP injection vulnerabilities
+- **Path Traversal**: Review file system access and directory traversal risks
+
+### 2. Authentication and Authorization
+- **Identity Verification**: Analyze authentication mechanisms and credential handling
+- **Authorization Checks**: Review permission systems and privilege escalation risks
+- **Session Management**: Examine session timeout, token management, and hijacking risks
+- **Missing Authorize**: Identify missing authorization decorators or middleware
+- **Role Confusion**: Assess role-based access control implementation gaps
+
+### 3. Data Protection and Cryptography
+- **Sensitive Data Exposure**: Identify hardcoded credentials, API keys, and secrets
+- **Weak Cryptography**: Review encryption algorithms, key lengths, and random number generation
+- **Data in Transit**: Analyze TLS/SSL implementation and certificate validation
+- **Data at Rest**: Examine data-at-rest encryption and storage security
+- **Key Management**: Assess cryptographic key storage, rotation, and access controls
+
+### 4. Dependency and Configuration Security
+- **Vulnerable Dependencies**: Analyze third-party libraries and known CVEs
+- **Insecure Defaults**: Review default configurations and security settings
+- **Secret Management**: Examine environment variable and secrets handling
+- **Supply Chain**: Assess dependency provenance and substitution risks
+- **Build Security**: Review build pipeline integrity and artifact verification
+
+## Performance and Scalability Task Requirements
+
+### 1. Algorithmic Efficiency
+- **Complexity Issues**: Identify inefficient loops and nested iterations
+- **Data Structure Choices**: Review inappropriate data structure usage
+- **Caching Opportunities**: Analyze repeated expensive operations without caching
+- **Lazy Loading**: Examine eager loading of unnecessary data
+- **Optimization Gaps**: Identify missing indexes and query optimization opportunities
+
+### 2. Database and I/O Patterns
+- **N+1 Queries**: Detect N+1 query patterns and missing eager loading
+- **Full Table Scans**: Review queries missing proper indexes
+- **Connection Pooling**: Analyze database connection management
+- **I/O Hotspots**: Identify excessive file or network I/O operations
+- **Query Performance**: Assess slow queries and missing query optimization
+
+### 3. Memory and Resource Usage
+- **Memory Leaks**: Identify memory leaks and growing collections
+- **Unnecessary Allocations**: Review excessive object allocations
+- **Large Object Retention**: Analyze unnecessary retention of large objects
+- **Buffer Sizing**: Examine buffer sizing and overflow risks
+- **Resource Contention**: Assess resource contention and bottlenecks
+
+## Maintainability and Design Task Requirements
+
+### 1. Code Structure and Organization
+- **Separation of Concerns**: Analyze coupling, cohesion, and layering issues
+- **Code Duplication**: Identify duplicated code and logic repetition
+- **Naming Conventions**: Review naming clarity and consistency
+- **Modularity**: Assess module boundaries and dependency direction
+- **Circular Dependencies**: Detect circular dependencies and coupling issues
+
+### 2. Readability and Documentation
+- **Code Clarity**: Identify overly complex or obscure code patterns
+- **Comments**: Review missing or misleading inline documentation
+- **Function Length**: Analyze excessively long functions and methods
+- **Parameter Count**: Review functions with too many parameters
+- **Magic Numbers**: Detect unexplained constants and magic values
+
+### 3. Testability and Design Patterns
+- **Dependency Injection**: Analyze dependency injection and testability
+- **Interface Design**: Review interface completeness and abstraction
+- **Design Pattern Usage**: Assess appropriate use of design patterns
+- **Test Coverage Gaps**: Identify missing unit and integration tests
+- **Mocking Challenges**: Examine tightly coupled code that's hard to test
+
+## Output (TODO Only)
+
+Write all findings and recommendations to `TODO_code-review-request.md` only. Do not create any other files.
+
+## Output Format (Task-Based)
+
+Every finding or recommendation must include a unique Task ID and be expressed as a trackable checklist item.
+
+In `TODO_code-review-request.md`, include:
+
+### Executive Summary
+- Overall code quality assessment
+- Most critical issues identified
+- Risk level distribution (Critical/High/Medium/Low)
+- Immediate action items
+
+### Detailed Findings
+- **Issue Title**: Clear, descriptive name
+- **Location**: Specific file paths, line numbers, and affected components
+- **Description**: Detailed explanation of the issue
+- **Evidence**: Code snippet or behavior explanation
+- **Risk Level**: Critical/High/Medium/Low based on impact
+- **Business Impact**: Potential consequences including bugs, outages, technical debt
+- **Technical Impact**: System stability, performance, and maintainability effects
+- **Suggested Fix**: Concrete change or pattern to apply
+- **Tests Needed**: Tests to add or update to prevent regression
+- **Regression Risk**: Areas that require retesting after the fix
+
+### Remediation Recommendations
+- **Immediate Actions**: Critical fixes that should be implemented immediately
+- **Short-term Solutions**: Improvements for the next sprint/release
+- **Long-term Strategy**: Architectural or structural improvements
+- **Code Examples**: Correct patterns and implementation examples
+- **Tools & Libraries**: Recommended linters, analyzers, or refactoring tools
+- **Testing Strategies**: Test updates or additions to validate fixes
+
+### Effort & Priority Assessment
+- **Implementation Effort**: Development time estimation (hours/days/weeks)
+- **Complexity Level**: Simple/Moderate/Complex based on technical requirements
+- **Dependencies**: Prerequisites and coordination requirements
+- **Priority Score**: Combined risk and effort matrix for prioritization
+
+## Quality Assurance Task Checklist
+
+### Evidence-Based Analysis
+- Provide specific code references with file paths and line numbers
+- Include actual code snippets demonstrating issues
+- Reference industry best practices and coding standards
+- Cite relevant design patterns and principles
+
+### Actionable Recommendations
+- Provide concrete, implementable solutions
+- Include secure/correct code examples and best practices
+- Suggest appropriate refactoring tools and libraries
+- Recommend testing and validation approaches
+
+### Risk Contextualization
+- Consider the code's criticality and usage context
+- Assess likelihood of failure in production
+- Evaluate potential impact on business operations and users
+- Prioritize based on real-world risk rather than theoretical issues
+
+## Additional Task Focus Areas
+
+### Modern Development Practices
+- SOLID principles adherence
+- Clean code practices and code smell detection
+- Refactoring opportunities and technical debt reduction
+- Design pattern appropriateness and usage
+- Architectural pattern alignment
+
+### Industry Standards
+- Language-specific best practices and idioms
+- Framework-specific conventions and patterns
+- Secure coding guidelines (OWASP, CWE)
+- Performance optimization standards
+
+Please begin the comprehensive code review, focusing on identifying the most critical issues that could impact correctness, security, performance, and maintainability.
+
+---
+**RULE:** When using this prompt, you must create a file named `TODO_code-review-request.md`. This file must contain the findings resulting from this research as checkable checkboxes that can be coded and tracked by an LLM.

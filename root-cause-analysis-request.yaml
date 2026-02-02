@@ -1,0 +1,351 @@
+---
+name: root-cause-analysis-request
+description: Perform an evidence-based root cause analysis (RCA) with timeline, causes, and prevention plan.
+---
+
+# Root Cause Analysis Request
+
+Please perform a comprehensive root cause analysis for the reported issue(s). This analysis will help us understand what happened, why it happened, and how to prevent recurrence, using evidence-based investigation and causal analysis techniques.
+
+## Task-Oriented Execution Model
+- Treat every requirement below as an explicit, trackable task.
+- Assign each task a stable ID (e.g., TASK-1.1) and use checklist items in outputs.
+- Keep tasks grouped under the same headings to preserve traceability.
+- Produce outputs as Markdown documents with task checklists; include code only in fenced blocks when required.
+- Preserve scope exactly as written; do not drop or add requirements.
+
+## Incident Scope and Context Task Requirements
+
+### 1. Incident Summary
+- **What Happened**: Clear description of the incident or failure
+- **When It Happened**: Timeline of when the issue started and was detected
+- **Where It Happened**: Specific systems, services, or components affected
+- **Duration**: Total incident duration and phases
+- **Detection Method**: How the incident was discovered
+- **Initial Response**: Initial actions taken when incident was detected
+
+### 2. Impacted Systems and Users
+- **Affected Services**: List all services, components, or features impacted
+- **Geographic Impact**: Regions, zones, or geographic areas affected
+- **User Impact**: Number and type of users affected
+- **Functional Impact**: What functionality was unavailable or degraded
+- **Data Impact**: Any data corruption, loss, or inconsistency
+- **Dependencies**: Downstream or upstream systems affected
+
+### 3. Data Sensitivity and Compliance
+- **Data Integrity**: Impact on data integrity and consistency
+- **Privacy Impact**: Whether PII or sensitive data was exposed
+- **Compliance Impact**: Regulatory or compliance implications
+- **Reporting Requirements**: Any mandatory reporting requirements triggered
+- **Customer Impact**: Impact on customers and SLAs
+- **Financial Impact**: Estimated financial impact if applicable
+
+### 4. Assumptions and Constraints
+- **Known Unknowns**: Information gaps and uncertainties
+- **Scope Boundaries**: What is in-scope and out-of-scope for analysis
+- **Time Constraints**: Analysis timeframe and deadline constraints
+- **Access Limitations**: Limitations on access to logs, systems, or data
+- **Resource Constraints**: Constraints on investigation resources
+
+## Evidence Collection and Preservation Task Requirements
+
+### 1. Telemetry Artifacts
+- **Application Logs**: Collect relevant application logs with timestamps
+- **System Logs**: Gather system-level logs (OS, web server, database)
+- **Metrics and Dashboards**: Capture relevant metrics and dashboard snapshots
+- **Trace Data**: Collect distributed tracing data if available
+- **Crash Dumps**: Preserve any crash dumps or core files
+- **Performance Data**: Gather performance profiles and monitoring data
+
+### 2. Configuration and Deployments
+- **Deployment History**: Review recent deployments and configuration changes
+- **Environment Variables**: Capture environment variables and configurations
+- **Infrastructure Changes**: Document infrastructure changes (scaling, networking)
+- **Feature Flags**: Review feature flag states and recent changes
+- **Dependency Updates**: Check for recent dependency or library updates
+- **Code Commits**: Review recent code commits and PRs
+
+### 3. User Reports and Observations
+- **User Reports**: Collect user-reported issues and timestamps
+- **Support Tickets**: Review support tickets related to the incident
+- **Ticket Timeline**: Document ticket creation and escalation timeline
+- **User Context**: Context from users about what they were doing
+- **Reproduction Notes**: Any reproduction steps or user-provided context
+- **Workarounds**: Document any workarounds users or support found
+
+### 4. Time Synchronization
+- **Clock Verification**: Verify time synchronization across systems
+- **Timezone Handling**: Confirm timezone handling in logs
+- **Timestamp Formats**: Validate timestamp format consistency
+- **Correlation IDs**: Review correlation ID usage and propagation
+- **Timeline Alignment**: Align timelines from different systems
+
+### 5. Data Gaps and Limitations
+- **Missing Logs**: Identify gaps in log coverage
+- **Retention Issues**: Note any data lost to retention policies
+- **Sampling Effects**: Assess impact of log sampling on analysis
+- **Timestamp Precision**: Note limitations in timestamp precision
+- **Incomplete Data**: Document incomplete or partial data availability
+- **Confidence Impact**: Assess how data gaps affect confidence in conclusions
+
+## Symptom Mapping and Impact Task Requirements
+
+### 1. Failure Onset Analysis
+- **First Indicators**: Identify the first indicators of failure
+- **Symptom Progression**: Map how symptoms evolved over time
+- **Detection Latency**: Measure time from failure to detection
+- **Symptom Clusters**: Group related symptoms together
+- **Propagation Patterns**: Analyze how failure propagated
+- **Recovery Patterns**: Document recovery progression
+
+### 2. Impact Scope Analysis
+- **Affected Users**: Quantify user impact by segment
+- **Affected Services**: Map service dependencies and impact
+- **Geographic Spread**: Analyze geographic distribution of impact
+- **Temporal Patterns**: Identify time-based patterns in impact
+- **Severity Progression**: Track how severity changed over time
+- **Peak Impact**: Identify peak impact time and scope
+
+### 3. Data Impact Assessment
+- **Data Loss**: Quantify any data loss
+- **Data Corruption**: Assess data corruption extent
+- **Data Inconsistency**: Identify data inconsistency issues
+- **Transaction Integrity**: Review transaction integrity
+- **Recovery Completeness**: Assess data recovery completeness
+- **Rollback Impact**: Analyze impact of any rollbacks
+
+### 4. Boundary Clarity
+- **Known Impact**: Clearly document known impact boundaries
+- **Suspected Impact**: Identify areas with suspected but unconfirmed impact
+- **Unaffected Areas**: Document areas verified as unaffected
+- **Impact Transition**: Map transitions between affected and unaffected
+- **Monitoring Gaps**: Note gaps in impact monitoring
+
+## Hypothesis Generation and Testing Task Requirements
+
+### 1. Hypothesis Development
+- **Multiple Hypotheses**: Generate multiple plausible hypotheses
+- **Evidence-Based**: Ground hypotheses in observed evidence
+- **Root Cause Categories**: Consider multiple root cause categories
+- **Contributing Factors**: Identify potential contributing factors
+- **Dependencies**: Consider dependency-related causes
+- **Human Factors**: Include human factors in hypotheses
+
+### 2. Hypothesis Testing
+- **Test Design**: Design tests to confirm or reject each hypothesis
+- **Evidence Gathering**: Collect evidence to test hypotheses
+- **Reproduction Attempts**: Document reproduction attempts and outcomes
+- **Exclusion Tests**: Design tests to exclude potential causes
+- **Validation Results**: Document validation results for each hypothesis
+- **Confidence Levels**: Assign confidence levels to conclusions
+
+### 3. Reproduction Steps
+- **Reproduction Scenarios**: Define reproduction scenarios
+- **Test Environments**: Use appropriate test environments
+- **Minimal Reproduction**: Create minimal reproduction cases
+- **Variable Isolation**: Isolate variables in reproduction
+- **Reproduction Success**: Document successful reproduction steps
+- **Reproduction Failure**: Analyze why reproduction failed
+
+### 4. Counterfactual Analysis
+- **What-If Scenarios**: Analyze what would have prevented the incident
+- **Prevention Points**: Identify points where intervention could have helped
+- **Alternative Paths**: Consider alternative paths that would have prevented failure
+- **Design Implications**: Extract design lessons from counterfactuals
+- **Process Gaps**: Identify process gaps from what-if analysis
+
+## Timeline Reconstruction Task Requirements
+
+### 1. Last Known Good State
+- **Baseline State**: Document last known good state
+- **Baseline Verification**: Verify baseline characterization
+- **Change Delta**: Identify changes from baseline
+- **State Transition**: Map state transition from good to failed
+- **Verification Methods**: Document how baseline was verified
+
+### 2. Change Sequence Analysis
+- **Deployment Timeline**: Reconstruct deployment and change timeline
+- **Configuration Changes**: Document configuration change sequence
+- **Infrastructure Changes**: Track infrastructure changes
+- **External Events**: Note external events that may have contributed
+- **Change Correlation**: Correlate changes with symptom onset
+- **Change Rollback**: Document rollback events and their impact
+
+### 3. Event Sequence Reconstruction
+- **Event Ordering**: Reconstruct accurate event ordering
+- **Causal Chains**: Build causal chains of events
+- **Parallel Events**: Identify parallel or concurrent events
+- **Event Correlation**: Correlate events across systems
+- **Timestamp Alignment**: Align timestamps from different sources
+- **Sequence Validation**: Validate reconstructed sequence
+
+### 4. Inflection Points
+- **Critical Transitions**: Identify critical state transitions
+- **Threshold Crossings**: Note when metrics crossed thresholds
+- **Failure Points**: Pinpoint exact failure moments
+- **Recovery Points**: Identify recovery initiation points
+- **Exacerbation Events**: Note events that worsened the situation
+- **Mitigation Events**: Document events that mitigated impact
+
+### 5. Human Actions and Interventions
+- **Manual Interventions**: Document all manual interventions
+- **Decision Points**: Record key decision points and rationale
+- **Escalations**: Track escalation events and timing
+- **Communication**: Document communication events
+- **Response Actions**: Record response actions and their effectiveness
+
+## Root Cause and Contributing Factors Task Requirements
+
+### 1. Primary Root Cause
+- **Root Cause Statement**: Clear, specific statement of root cause
+- **Causal Mechanism**: Explanation of the causal mechanism
+- **Direct Evidence**: Evidence directly supporting root cause
+- **Logical Chain**: Complete logical chain from cause to effect
+- **Specificity**: Specific code, configuration, or process identified
+- **Verification**: How root cause was verified
+
+### 2. Contributing Factors
+- **Secondary Causes**: Identify secondary contributing causes
+- **Enabling Conditions**: Conditions that enabled the root cause
+- **Process Failures**: Process gaps or failures that contributed
+- **Technical Debt**: Technical debt that contributed to the issue
+- **Resource Constraints**: Resource limitations that were factors
+- **Communication Gaps**: Communication issues that contributed
+
+### 3. Safeguard Gaps
+- **Missing Safeguards**: Identify safeguards that should have prevented this
+- **Failed Safeguards**: Document safeguards that failed to activate
+- **Bypassed Safeguards**: Note safeguards that were bypassed
+- **Insufficient Safeguards**: Identify insufficient safeguard strength
+- **Safeguard Design**: Assess safeguard design adequacy
+- **Safeguard Testing**: Evaluate safeguard testing coverage
+
+### 4. Detection Gaps
+- **Monitoring Gaps**: Identify monitoring gaps that delayed detection
+- **Alerting Failures**: Document alerting failures
+- **Visibility Issues**: Note visibility issues that contributed
+- **Observability Gaps**: Identify observability gaps
+- **Delayed Detection**: Analyze why detection was delayed
+- **Detection Improvements**: Recommend detection improvements
+
+## Corrective and Preventive Actions Task Requirements
+
+### 1. Immediate Remediation
+- **Immediate Actions**: Document immediate remediation steps taken
+- **Effectiveness**: Assess effectiveness of immediate actions
+- **Side Effects**: Note any side effects of immediate actions
+- **Validation**: How remediation was validated
+- **Residual Risk**: Assess any residual risk after remediation
+- **Monitoring**: Monitoring for reoccurrence
+
+### 2. Long-Term Fixes
+- **Permanent Fixes**: Define permanent fixes for root cause
+- **Architecture Changes**: Identify needed architectural improvements
+- **Process Changes**: Define process changes needed
+- **Tooling Improvements**: Recommend tooling improvements
+- **Documentation Updates**: Update documentation based on lessons learned
+- **Training Needs**: Identify training needs revealed
+
+### 3. Monitoring and Alerting Updates
+- **New Metrics**: Add new metrics to detect similar issues
+- **Alert Adjustments**: Adjust alert thresholds and conditions
+- **Dashboard Updates**: Update operational dashboards
+- **Runbook Updates**: Update runbooks based on lessons learned
+- **Escalation Improvements**: Improve escalation processes
+- **Detection Automation**: Automate detection where possible
+
+### 4. Process Improvements
+- **Review Processes**: Identify process review needs
+- **Change Management**: Improve change management processes
+- **Testing Processes**: Enhance testing processes
+- **Review Gates**: Add or modify review gates
+- **Approval Processes**: Improve approval processes
+- **Communication Protocols**: Enhance communication protocols
+
+## Output (TODO Only)
+
+Write the full RCA (timeline, findings, and action plan) to `TODO_root-cause-analysis-request.md` only. Do not create any other files.
+
+## Output Format (Task-Based)
+
+Every finding or recommendation must include a unique Task ID and be expressed as a trackable checklist item.
+
+In `TODO_root-cause-analysis-request.md`, include:
+
+### Executive Summary
+- Overall incident impact assessment
+- Most critical causal factors identified
+- Risk level distribution (Critical/High/Medium/Low)
+- Immediate action items
+- Prevention strategy summary
+
+### Detailed Findings
+- **Title**: Short, descriptive title
+- **Evidence**: Concrete logs, metrics, or code references
+- **Reasoning**: Why the evidence supports the conclusion
+- **Impact**: Technical and business impact
+- **Status**: Confirmed or suspected
+- **Confidence**: High/Medium/Low based on evidence strength
+- **Counterfactual**: What would have prevented the issue
+- **Owner**: Responsible team for remediation
+- **Priority**: Urgency of addressing this finding
+
+### Remediation Recommendations
+- **Immediate Actions**: Containment and stabilization steps
+- **Short-term Solutions**: Fixes for the next release cycle
+- **Long-term Strategy**: Architectural or process improvements
+- **Runbook Updates**: Updates to runbooks or escalation paths
+- **Tooling Enhancements**: Monitoring and alerting improvements
+- **Validation Steps**: Verification steps for each remediation action
+- **Timeline**: Expected completion timeline
+
+### Effort & Priority Assessment
+- **Implementation Effort**: Development time estimation (hours/days/weeks)
+- **Complexity Level**: Simple/Moderate/Complex based on technical requirements
+- **Dependencies**: Prerequisites and coordination requirements
+- **Priority Score**: Combined risk and effort matrix for prioritization
+- **ROI Assessment**: Expected return on investment
+
+## Quality Assurance Task Checklist
+
+### Evidence-First Analysis
+- **Evidence-First Reasoning**: Provide evidence-first reasoning; avoid speculation without labeling it
+- **References**: Cite file paths, log identifiers, or time ranges where possible
+- **Confidence Gaps**: Note data gaps and how they affect confidence
+- **Evidence Quality**: Assess quality of evidence used
+- **Alternative Explanations**: Consider alternative explanations supported by evidence
+
+### Causal Clarity
+- **Cause Separation**: Distinguish between root cause and contributing factors
+- **Direct vs Indirect**: Clearly mark direct vs indirect causes
+- **Verification**: Provide verification steps for each remediation action
+- **Avoid Blame**: Focus on systems and controls, not individuals
+- **Systemic View**: Consider systemic factors contributing to the issue
+
+### Risk Contextualization
+- **Impact Scope**: Clarify affected users, services, or regions
+- **Recurrence Risk**: Assess likelihood of recurrence without fixes
+- **Business Impact**: Include revenue, trust, or SLA impact where relevant
+- **Customer Trust**: Assess impact on customer trust and satisfaction
+- **Strategic Implications**: Consider strategic implications
+
+## Additional Task Focus Areas
+
+### Observability and Process
+- **Observability Gaps**: Identify observability gaps and monitoring improvements
+- **Process Guardrails**: Recommend process or review checkpoints
+- **Postmortem Quality**: Evaluate clarity, actionability, and follow-up tracking
+- **Knowledge Sharing**: Ensure learnings are shared across teams
+- **Documentation**: Document lessons learned for future reference
+
+### Prevention Strategy
+- **Detection Improvements**: Recommend detection improvements
+- **Prevention Measures**: Define prevention measures
+- **Resilience Enhancements**: Suggest resilience enhancements
+- **Testing Improvements**: Recommend testing improvements
+- **Architecture Evolution**: Suggest architectural changes to prevent recurrence
+
+Please begin the root cause analysis, focusing on evidence-backed causality and prevention.
+
+---
+**RULE:** When using this prompt, you must create a file named `TODO_root-cause-analysis-request.md`. This file must contain the findings resulting from this research as checkable checkboxes that can be coded and tracked by an LLM.

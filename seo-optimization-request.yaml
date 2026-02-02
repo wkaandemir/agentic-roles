@@ -1,0 +1,292 @@
+---
+name: seo-optimization-request
+description: Audit and optimize SEO (technical + on-page) and produce a prioritized remediation roadmap.
+---
+
+# SEO Optimization Request
+
+Please perform a comprehensive SEO optimization analysis of the website or web application. This analysis will help us identify technical SEO issues, content optimization opportunities, and improve search engine visibility and ranking performance.
+
+## Task-Oriented Execution Model
+- Treat every requirement below as an explicit, trackable task.
+- Assign each task a stable ID (e.g., TASK-1.1) and use checklist items in outputs.
+- Keep tasks grouped under the same headings to preserve traceability.
+- Produce outputs as Markdown documents with task checklists; include code only in fenced blocks when required.
+- Preserve scope exactly as written; do not drop or add requirements.
+
+## Technical SEO Task Requirements
+
+### 1. Crawlability and Indexing
+- **Robots.txt Configuration**: Review robots.txt for proper directives and syntax
+- **XML Sitemap**: Analyze XML sitemap completeness, coverage, and structure
+- **Crawl Budget**: Assess crawl budget optimization and prioritization
+- **Crawl Errors**: Identify crawl errors, blocked resources, and access issues
+- **Canonical Tags**: Review canonical tag implementation and consistency
+- **NoIndex Usage**: Analyze noindex directives and proper usage
+- **Hreflang Tags**: Review hreflang implementation for international sites
+
+### 2. Site Architecture and URL Structure
+- **URL Structure**: Analyze URL structure, hierarchy, and readability
+- **Site Hierarchy**: Review site architecture and information hierarchy
+- **Internal Linking**: Assess internal linking structure and distribution
+- **Navigation**: Evaluate main and secondary navigation implementation
+- **Breadcrumbs**: Review breadcrumb implementation and schema markup
+- **Pagination**: Analyze pagination handling and rel=prev/next tags
+- **Redirection**: Review 301, 302 redirects and redirect chains
+
+### 3. Site Performance and Core Web Vitals
+- **Page Speed**: Analyze page load times and performance metrics
+- **Largest Contentful Paint (LCP)**: Review LCP scores and optimization opportunities
+- **First Input Delay (FID)**: Assess FID scores and interactivity issues
+- **Cumulative Layout Shift (CLS)**: Analyze CLS scores and layout stability
+- **Time to First Byte (TTFB)**: Review server response times
+- **Resource Optimization**: Identify image, CSS, and JavaScript optimization opportunities
+- **Mobile Performance**: Assess mobile performance vs desktop performance
+
+### 4. Mobile-Friendliness
+- **Responsive Design**: Review responsive design implementation
+- **Mobile-First Indexing**: Assess mobile-first indexing readiness
+- **Mobile Usability**: Identify mobile usability issues and touch targets
+- **Viewport Configuration**: Review viewport meta tag implementation
+- **Mobile Speed**: Analyze mobile page speed and optimization
+- **AMP Implementation**: Review AMP implementation if applicable
+
+### 5. HTTPS and Security
+- **HTTPS Implementation**: Verify HTTPS is properly implemented
+- **Certificate Validity**: Review SSL certificate validity and configuration
+- **Mixed Content**: Identify and fix mixed content issues
+- **HSTS**: Review HTTP Strict Transport Security implementation
+- **Security Headers**: Assess security header implementation
+
+### 6. Structured Data and Schema Markup
+- **Schema Implementation**: Review structured data markup implementation
+- **Rich Snippets**: Analyze rich snippet opportunities and implementation
+- **Organization Schema**: Review organization and local business schema
+- **Product Schema**: Assess product schema implementation for e-commerce
+- **Article Schema**: Review article schema for content sites
+- **FAQ Schema**: Analyze FAQ schema implementation
+- **Breadcrumb Schema**: Review breadcrumb structured data
+- **Validation**: Validate structured data using Google's Rich Results Test
+
+## On-Page SEO Task Requirements
+
+### 1. Title Tags and Meta Descriptions
+- **Title Tag Analysis**: Review title tag length, relevance, and optimization
+- **Meta Description Analysis**: Assess meta description quality and CTA inclusion
+- **Duplicate Titles**: Identify duplicate or missing title tags
+- **Duplicate Descriptions**: Find duplicate or missing meta descriptions
+- **Keyword Usage**: Analyze keyword placement in titles and descriptions
+- **Brand Usage**: Review consistent brand naming in titles
+
+### 2. Header Tags and Content Structure
+- **H1 Tag Analysis**: Review H1 tag usage and optimization
+- **Header Hierarchy**: Assess proper H1-H6 heading structure
+- **Keyword in Headings**: Analyze keyword placement in headings
+- **Content Structure**: Review content organization and readability
+- **Semantic HTML**: Assess semantic HTML usage for content structure
+
+### 3. Content Quality and Optimization
+- **Content Length**: Analyze content length and depth vs competitors
+- **Keyword Density**: Review keyword usage and natural integration
+- **LSI Keywords**: Identify latent semantic indexing keyword opportunities
+- **Content Gaps**: Find content gaps vs competitors and search intent
+- **Duplicate Content**: Identify duplicate content issues
+- **Thin Content**: Find thin or low-quality content pages
+- **Content Freshness**: Assess content freshness and update needs
+- **E-E-A-T**: Review experience, expertise, authoritativeness, and trustworthiness signals
+
+### 4. Image Optimization
+- **Alt Text**: Review alt text completeness and optimization
+- **File Names**: Analyze image file naming conventions
+- **File Size**: Identify image optimization opportunities
+- **Format**: Review image format selection (WebP, AVIF)
+- **Lazy Loading**: Assess lazy loading implementation
+- **Structured Data**: Review image schema markup
+
+### 5. Internal Linking and Anchor Text
+- **Link Distribution**: Analyze internal link distribution and equity flow
+- **Anchor Text**: Review anchor text relevance and variety
+- **Orphan Pages**: Identify orphan pages without internal links
+- **Link Depth**: Assess click depth from homepage
+- **Contextual Links**: Review contextual internal linking
+- **Footer Links**: Analyze footer link implementation
+
+### 6. User Experience Signals
+- **Dwell Time**: Analyze average time on page and engagement
+- **Bounce Rate**: Review bounce rates by page type
+- **Pages Per Session**: Assess pages per session metrics
+- **Navigation Ease**: Review site navigation and user journey
+- **Search Functionality**: Evaluate on-site search implementation
+- **404 Pages**: Review custom 404 page implementation
+
+## Off-Page SEO Task Requirements
+
+### 1. Backlink Profile Analysis
+- **Backlink Quality**: Assess quality and relevance of backlinks
+- **Backlink Quantity**: Analyze backlink count vs competitors
+- **Anchor Text Distribution**: Review anchor text diversity and optimization
+- **Toxic Links**: Identify and assess toxic or spammy backlinks
+- **Link Velocity**: Analyze backlink acquisition rate
+- **Broken Backlinks**: Find broken backlinks and redirection opportunities
+- **Competitor Backlinks**: Identify competitor backlink opportunities
+
+### 2. Domain Authority and Trust
+- **Domain Authority**: Assess domain authority vs competitors
+- **Page Authority**: Analyze page authority distribution
+- **Domain Age**: Review domain age and history
+- **Brand Searches**: Analyze branded search volume
+- **Social Signals**: Review social media presence and engagement
+
+### 3. Local SEO (if applicable)
+- **Google Business Profile**: Review Google Business Profile optimization
+- **Local Citations**: Analyze local citation consistency and coverage
+- **Local Reviews**: Assess review quantity, quality, and response
+- **Local Keywords**: Review local keyword targeting
+- **NAP Consistency**: Verify name, address, phone consistency
+- **Local Schema**: Review local business schema markup
+
+### 4. Content Marketing and Promotion
+- **Content Distribution**: Review content distribution channels
+- **Social Sharing**: Analyze social sharing metrics and optimization
+- **Influencer Links**: Assess influencer partnership opportunities
+- **Guest Posting**: Review guest posting opportunities
+- **PR Coverage**: Analyze PR and media coverage opportunities
+
+## International SEO Requirements (if applicable)
+
+### 1. Multi-Language Implementation
+- **Hreflang Tags**: Review hreflang implementation and correctness
+- **Language Detection**: Assess automatic language detection
+- **Regional Content**: Review regional content variation
+- **URL Structure**: Analyze URL structure for languages (subdomain, subdirectory, etc.)
+- **Geo-Targeting**: Review geolocation targeting in Google Search Console
+
+### 2. Regional Optimization
+- **Local Keywords**: Analyze regional keyword variations
+- **Cultural Adaptation**: Review content cultural adaptation
+- **Currency and Pricing**: Assess local currency and pricing display
+- **Local Regulations**: Review compliance with local regulations
+- **Local Hosting**: Review hosting and CDN location for regions
+
+## Analytics and Monitoring Task Requirements
+
+### 1. Search Console Analysis
+- **Performance Report**: Review Google Search Console performance data
+- **Index Coverage**: Analyze index coverage and issues
+- **Mobile Usability**: Review mobile usability issues
+- **Enhancements**: Assess structured data, AMP, and other enhancements
+- **Manual Actions**: Check for manual penalties or actions
+- **Security Issues**: Review security issues detected
+
+### 2. Analytics Setup and Tracking
+- **GA4 Setup**: Review Google Analytics 4 implementation
+- **Goals and Events**: Assess goal and event tracking setup
+- **E-commerce Tracking**: Review e-commerce tracking implementation
+- **Search Term Tracking**: Analyze organic search term tracking
+- **Custom Dimensions**: Review custom dimension implementation
+- **Cross-Domain Tracking**: Assess cross-domain tracking setup
+
+### 3. Rank Tracking
+- **Keyword Rankings**: Track current keyword rankings
+- **Ranking Changes**: Monitor ranking changes over time
+- **Competitor Rankings**: Compare rankings vs competitors
+- **Featured Snippets**: Track featured snippet ownership
+- **Local Rankings**: Monitor local search rankings if applicable
+- **Mobile vs Desktop**: Compare mobile vs desktop rankings
+
+### 4. Competitor Analysis
+- **Competitor Keywords**: Identify competitor keyword opportunities
+- **Content Gaps**: Find content gaps vs competitors
+- **Backlink Gap**: Analyze backlink gap vs competitors
+- **Technical Comparison**: Compare technical SEO vs competitors
+- **Content Performance**: Analyze competitor content performance
+
+## Output (TODO Only)
+
+Write the full SEO analysis (audit findings, keyword opportunities, and roadmap) to `TODO_seo-optimization-request.md` only. Do not create any other files.
+
+## Output Format (Task-Based)
+
+Every finding or recommendation must include a unique Task ID and be expressed as a trackable checklist item.
+
+In `TODO_seo-optimization-request.md`, include:
+
+### Executive Summary
+- Overall SEO health assessment
+- Most critical issues identified
+- Priority distribution (Critical/High/Medium/Low)
+- Immediate action items
+- Traffic potential estimate
+
+### Detailed Findings
+- **Issue Title**: Clear, descriptive issue name
+- **Location**: Page URL, section, or component
+- **Description**: Detailed explanation of the SEO issue
+- **Impact**: Impact on search visibility and ranking
+- **Priority**: Critical/High/Medium/Low based on impact
+- **Effort**: Estimated effort to fix
+- **Recommendation**: Specific fix or optimization
+- **Expected Outcome**: Expected impact if implemented
+- **Competitor Benchmark**: How competitors handle this
+- **Tools**: Recommended tools for validation
+
+### Remediation Recommendations
+- **Immediate Actions**: Critical fixes for immediate implementation
+- **Short-term Solutions**: SEO improvements for the next month
+- **Long-term Strategy**: Ongoing SEO strategy and content plan
+- **Code Examples**: Implementation examples where applicable
+- **Tools & Resources**: Recommended SEO tools and resources
+- **Monitoring**: How to track improvement over time
+
+### Effort & Priority Assessment
+- **Implementation Effort**: Development time estimation (hours/days/weeks)
+- **Complexity Level**: Simple/Moderate/Complex based on technical requirements
+- **Dependencies**: Prerequisites and coordination requirements
+- **Priority Score**: Combined impact and effort matrix for prioritization
+- **ROI Projection**: Expected traffic and ranking improvement
+
+## Quality Assurance Task Checklist
+
+### Evidence-Based Analysis
+- **Tool Results**: Include actual tool results and screenshots
+- **Code References**: Provide specific code references where applicable
+- **Competitor Comparisons**: Include competitor benchmark data
+- **Industry Standards**: Reference SEO best practices and guidelines
+- **Search Engine Guidelines**: Cite Google search engine guidelines
+
+### Actionable Recommendations
+- **Specific Instructions**: Provide specific implementation instructions
+- **Code Examples**: Include code examples for technical fixes
+- **Tool Suggestions**: Recommend SEO tools for ongoing monitoring
+- **Validation Steps**: Include validation steps for each recommendation
+
+### Risk Contextualization
+- **Search Impact**: Prioritize based on search visibility impact
+- **Traffic Potential**: Consider traffic potential from optimizations
+- **Competitor Advantage**: Assess competitive advantage from fixes
+- **Business Impact**: Include business impact and ROI considerations
+
+## Additional Task Focus Areas
+
+### Core Web Vitals Optimization
+- **LCP Optimization**: Specific recommendations for LCP improvement
+- **FID Optimization**: JavaScript and interaction optimization
+- **CLS Optimization**: Layout stability and reserve space recommendations
+- **Monitoring**: Ongoing Core Web Vitals monitoring strategy
+
+### Content Strategy
+- **Keyword Research**: Keyword research and opportunity analysis
+- **Content Calendar**: Content calendar and topic planning
+- **Content Update**: Existing content update and refresh strategy
+- **Content Pruning**: Content pruning and consolidation opportunities
+
+### Local SEO (if applicable)
+- **Local Pack**: Local pack optimization strategies
+- **Review Strategy**: Review acquisition and response strategy
+- **Local Content**: Local content creation strategy
+- **Citation Building**: Citation building and consistency strategy
+
+Please begin the comprehensive SEO analysis, focusing on the highest-impact opportunities for improving search visibility and ranking performance.
+
+---
+**RULE:** When using this prompt, you must create a file named `TODO_seo-optimization-request.md`. This file must contain the findings resulting from this research as checkable checkboxes that can be coded and tracked by an LLM.
